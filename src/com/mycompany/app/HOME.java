@@ -35,7 +35,7 @@ public class HOME extends javax.swing.JFrame {
             ps.setString(1, accountname);
             rs1 = ps.executeQuery();
             if (rs1.next()) {
-                System.out.println("TIM DU LIEU id THANH CONG!");
+                System.out.println("TIM DU LIEU id THANH CONG ,ok!");
             }
             System.out.print(rs1.getString(1) + " la id dang nhap");
             //da tim duoc id tk
