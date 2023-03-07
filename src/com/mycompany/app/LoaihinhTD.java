@@ -187,10 +187,11 @@ public class LoaihinhTD extends javax.swing.JFrame {
                                         .addComponent(txtKCAL, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(61, 61, 61)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(btnUPDATE)
-                                            .addComponent(jButton2)
-                                            .addComponent(jButton5))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(btnUPDATE)
+                                                .addComponent(jButton2)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(btnTHEMLICH)
@@ -227,9 +228,9 @@ public class LoaihinhTD extends javax.swing.JFrame {
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
                         .addComponent(btnUPDATE)
-                        .addGap(36, 36, 36)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton5)
-                        .addGap(30, 30, 30))
+                        .addGap(54, 54, 54))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
@@ -285,12 +286,12 @@ public class LoaihinhTD extends javax.swing.JFrame {
             id = rs.getInt(1);
             
 
-            String sqld = "UPDATE INTO lichtrinh (MA_TD) VALUES ( ?) WHERE ID =?";
+            String sqld = "UPDATE lichtrinh SET MA_TD = ? WHERE ID =?";
 
-            PreparedStatement ps1 = con.prepareStatement(sqld);
-            ps1.setString(1, txtMALICH.getText());
-            ps1.setInt(2,id);
-            int n1 = ps1.executeUpdate();
+            PreparedStatement psd = con.prepareStatement(sqld);
+            psd.setString(1, txtMALICH.getText());
+            psd.setInt(2,id);
+            int nd = psd.executeUpdate();
         } catch (Exception e) {
         }
 

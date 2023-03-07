@@ -248,7 +248,7 @@ public class Dinhduong extends javax.swing.JFrame {
         
         LoadDAO1 loadDAO1 = new LoadDAO1();
         int id1 =Integer.parseInt(id);
-        if(id1 == 60){
+        if(id1 == 63){
             loadDAO1.insert(tp ,loai ,kcalc);
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             while(model.getRowCount()!= 0){

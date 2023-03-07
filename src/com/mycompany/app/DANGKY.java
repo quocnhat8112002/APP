@@ -15,7 +15,6 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.DriverManager;
 
-
 /**
  *
  * @author admin
@@ -29,10 +28,11 @@ public class DANGKY extends javax.swing.JFrame {
         initComponents();
     }
     Connection conn = KETNOI.dbConnector();
-    
+
     Statement st;
     ResultSet rs;
     ResultSet rs1;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -160,68 +160,69 @@ public class DANGKY extends javax.swing.JFrame {
 
     private void btbDangkyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbDangkyActionPerformed
         // TODO add your handling code here:
-        
-        String username = txtUsername.getText();  
+
+        String username = txtUsername.getText();
         String ma;
         //khai bao bien int cho no
-        int Dangky = JOptionPane.showConfirmDialog(this,"Ban co muon dang ky","Confirm",JOptionPane.YES_NO_OPTION);
-        if(Dangky!=JOptionPane.YES_OPTION){
+        int Dangky = JOptionPane.showConfirmDialog(this, "Ban co muon dang ky", "Confirm", JOptionPane.YES_NO_OPTION);
+        if (Dangky != JOptionPane.YES_OPTION) {
             return;
         }
-        try{
-            
-            
+        try {
+
             //tao ket noi voi csdl
-            
             String sql = "INSERT INTO users(ACCOUNTNAME,PASSWORD,USERNAME) VALUES ( ?, ?, ?)";
-            
+
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1,txtAccountname.getText());
-            ps.setString(2,txtPassword.getText());
-            ps.setString(3,username);
-            int n=ps.executeUpdate();
-            
-            if(txtAccountname.getText().equals("")|txtUsername.getText().equals("")|txtPassword.getText().equals("")){
+            ps.setString(1, txtAccountname.getText());
+            ps.setString(2, txtPassword.getText());
+            ps.setString(3, username);
+            int n = ps.executeUpdate();
+
+            if (txtAccountname.getText().equals("") | txtUsername.getText().equals("") | txtPassword.getText().equals("")) {
                 JOptionPane.showMessageDialog(this, "THONG TIN TRONG");
-            }
-            else if(n!=0){
+            } else if (n != 0) {
                 System.out.println("chuyen dieu kien");
-                
+
                 String sqlb = "SELECT * FROM users Where ACCOUNTNAME = ?  ";
                 PreparedStatement ps1 = conn.prepareCall(sqlb);
-                ps1.setString(1,txtAccountname.getText());
-                rs1=ps1.executeQuery();
-                
-                
+                ps1.setString(1, txtAccountname.getText());
+                rs1 = ps1.executeQuery();
+
                 System.out.println("co tim duoc");
-                if(txtAccountname.getText().equals("")){
+                if (txtAccountname.getText().equals("")) {
                     System.out.print("KHONG TIM DUOC DU LIEU");
-                }else if(rs1.next()){
-                    ma=rs1.getString(1);
+                } else if (rs1.next()) {
+                    ma = rs1.getString(1);
                     System.out.println(ma);
-                    
+
                     String sqlD = "INSERT INTO tt_ca_nhan (MA_THANHVIEN,USERNAME) VALUES ( ?, ?)";
-            
+
                     PreparedStatement ps3 = conn.prepareStatement(sqlD);
-                    ps3.setString(1,ma);
-                    ps3.setString(2,txtUsername.getText());
-                    int nn=ps3.executeUpdate();
-                    
-                    if(nn!=0){
+                    ps3.setString(1, ma);
+                    ps3.setString(2, txtUsername.getText());
+                    int nn = ps3.executeUpdate();
+
+                    if (nn != 0) {
                         System.out.print("THEM ID THANH CONG");
                         JOptionPane.showMessageDialog(this, "DANG KY THANH CONG");
                         new DANGNHAP().setVisible(true);
                         dispose();
                     }
-                }                
-            }
-            else {
+                    String sqlg = "INSERT INTO lichtrinh (ID,TRANGTHAI) VALUES (?,?)";
+                    PreparedStatement psg = conn.prepareStatement(sqlg);
+                    psg.setString(1, ma);
+                    psg.setInt(2, 0);
+                    int na = psg.executeUpdate();
+
+                }
+            } else {
                 JOptionPane.showMessageDialog(this, "DANG KY THAT BAI");
             }
-        } catch (HeadlessException | SQLException e){
+        } catch (HeadlessException | SQLException e) {
         }
-        
-        
+
+
     }//GEN-LAST:event_btbDangkyActionPerformed
 
     private void btnDangnhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangnhapActionPerformed

@@ -39,19 +39,6 @@ public class HOME extends javax.swing.JFrame {
             }
             System.out.print(rs1.getString(1) + " la id dang nhap");
             //da tim duoc id tk
-            String sql6 = "SELECT * FROM lichtrinh WHERE ID =?";
-            PreparedStatement ps6 = con.prepareCall(sql6);
-            ps6.setString(1, rs1.getString(1));
-            rs6 = ps6.executeQuery();
-            if (rs6.next()) {
-                System.out.println("Da co du lieu");
-            } else {
-                String sqla = "INSERT * FROM lichtrinh (ID,TRANGTHAI) VALUES (?,?)";
-                PreparedStatement psa = con.prepareStatement(sqla);
-                psa.setString(1, rs1.getString(1));
-                psa.setInt(2, 0);
-                int na = psa.executeUpdate();
-            }
 
             String sql3 = "SELECT * FROM lichtrinh Where ID = ? ";
             PreparedStatement ps3 = con.prepareCall(sql3);
