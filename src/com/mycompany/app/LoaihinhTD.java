@@ -286,11 +286,12 @@ public class LoaihinhTD extends javax.swing.JFrame {
             id = rs.getInt(1);
             
 
-            String sqld = "UPDATE lichtrinh SET MA_TD = ? WHERE ID =?";
+            String sqld = "UPDATE lichtrinh SET MA_TD = ?,TRANGTHAI=? WHERE ID =?";
 
             PreparedStatement psd = con.prepareStatement(sqld);
             psd.setString(1, txtMALICH.getText());
-            psd.setInt(2,id);
+            psd.setInt(2, 0);
+            psd.setInt(3,id);
             int nd = psd.executeUpdate();
         } catch (Exception e) {
         }
