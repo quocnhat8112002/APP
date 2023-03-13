@@ -52,7 +52,7 @@ public class DANGKY extends javax.swing.JFrame {
         txtPassword = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
         btbDangky = new javax.swing.JButton();
-        btnDangnhap = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -88,10 +88,10 @@ public class DANGKY extends javax.swing.JFrame {
             }
         });
 
-        btnDangnhap.setText("Đăng nhập");
-        btnDangnhap.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Đăng nhập");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDangnhapActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -101,8 +101,8 @@ public class DANGKY extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnDangnhap)
-                .addGap(71, 71, 71)
+                .addComponent(jButton1)
+                .addGap(132, 132, 132)
                 .addComponent(btbDangky)
                 .addGap(149, 149, 149))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -136,7 +136,7 @@ public class DANGKY extends javax.swing.JFrame {
                 .addGap(90, 90, 90)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btbDangky)
-                    .addComponent(btnDangnhap))
+                    .addComponent(jButton1))
                 .addGap(57, 57, 57))
         );
 
@@ -194,12 +194,18 @@ public class DANGKY extends javax.swing.JFrame {
                     System.out.print("KHONG TIM DUOC DU LIEU");
                 } else if (rs1.next()) {
                     ma = rs1.getString(1);
+                    int ma_so1 = Integer.parseInt(ma);
                     System.out.println(ma);
+                    String sqlg = "INSERT INTO lichtrinh (ID,TRANGTHAI) VALUES (?,?)";
+                    PreparedStatement psg = conn.prepareStatement(sqlg);
+                    psg.setInt(1, ma_so1);
+                    psg.setInt(2, 0);
+                    int na = psg.executeUpdate();
 
                     String sqlD = "INSERT INTO tt_ca_nhan (MA_THANHVIEN,USERNAME) VALUES ( ?, ?)";
 
                     PreparedStatement ps3 = conn.prepareStatement(sqlD);
-                    ps3.setString(1, ma);
+                    ps3.setInt(1, ma_so1);
                     ps3.setString(2, txtUsername.getText());
                     int nn = ps3.executeUpdate();
 
@@ -209,13 +215,10 @@ public class DANGKY extends javax.swing.JFrame {
                         new DANGNHAP().setVisible(true);
                         dispose();
                     }
-                    String sqlg = "INSERT INTO lichtrinh (ID,TRANGTHAI) VALUES (?,?)";
-                    PreparedStatement psg = conn.prepareStatement(sqlg);
-                    psg.setString(1, ma);
-                    psg.setInt(2, 0);
-                    int na = psg.executeUpdate();
+                    
 
                 }
+                
             } else {
                 JOptionPane.showMessageDialog(this, "DANG KY THAT BAI");
             }
@@ -225,16 +228,15 @@ public class DANGKY extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btbDangkyActionPerformed
 
-    private void btnDangnhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangnhapActionPerformed
-        // TODO add your handling code here:
-        //CODE CHUYEN GIAO DIEN KHI NHAN NUT
-        new DANGNHAP().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnDangnhapActionPerformed
-
     private void txtAccountnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAccountnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAccountnameActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new DANGNHAP().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,7 +275,7 @@ public class DANGKY extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btbDangky;
-    private javax.swing.JButton btnDangnhap;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
