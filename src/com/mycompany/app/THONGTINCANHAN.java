@@ -43,11 +43,11 @@ public class THONGTINCANHAN extends javax.swing.JFrame {
             }
             
             ma_so=rs.getString(1);
-           
-            System.out.print(ma_so);
+            int ma_so1 = Integer.parseInt(ma_so);
+            System.out.print(ma_so1);
             String sql1="SELECT * FROM tt_ca_nhan WHERE MA_THANHVIEN=?";
             PreparedStatement ps1 = con.prepareCall(sql1);
-            ps1.setString(1, ma_so);
+            ps1.setInt(1, ma_so1);
             rs1=ps1.executeQuery();
             
             if(rs1.next()){
