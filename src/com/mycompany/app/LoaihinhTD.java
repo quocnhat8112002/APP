@@ -265,6 +265,7 @@ public class LoaihinhTD extends javax.swing.JFrame {
     
     private void btnTHEMLICHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTHEMLICHActionPerformed
         // TODO add your handling code here:
+        //them du lieu vao lich
         int id;
         int tt=0;
         Statement st;
@@ -284,12 +285,13 @@ public class LoaihinhTD extends javax.swing.JFrame {
                 System.out.println("TIM DU LIEU THANH CONG");
             }
             id = rs.getInt(1);
-            
+            String matd =txtMALICH.getText();
+            int matd1= Integer.parseInt(matd);
 
             String sqld = "UPDATE lichtrinh SET MA_TD = ?,TRANGTHAI=? WHERE ID =?";
 
             PreparedStatement psd = con.prepareStatement(sqld);
-            psd.setString(1, txtMALICH.getText());
+            psd.setInt(1, matd1);
             psd.setInt(2, 0);
             psd.setInt(3,id);
             int nd = psd.executeUpdate();
