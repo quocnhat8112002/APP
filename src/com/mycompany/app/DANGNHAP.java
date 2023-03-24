@@ -50,7 +50,6 @@ public class DANGNHAP extends javax.swing.JFrame {
         btnDANGNHAP = new javax.swing.JButton();
         btnDANGKY = new javax.swing.JButton();
         txtMATKHAU = new javax.swing.JPasswordField();
-        HIENMATKHAU = new javax.swing.JCheckBox();
         chkNHOTOI = new javax.swing.JCheckBox();
         btnRESET = new javax.swing.JButton();
 
@@ -77,13 +76,6 @@ public class DANGNHAP extends javax.swing.JFrame {
         btnDANGKY.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDANGKYActionPerformed(evt);
-            }
-        });
-
-        HIENMATKHAU.setText("Hiện mật khẩu");
-        HIENMATKHAU.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HIENMATKHAUActionPerformed(evt);
             }
         });
 
@@ -114,14 +106,11 @@ public class DANGNHAP extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(48, 48, 48)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtMATKHAU, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(19, 19, 19)
-                                        .addComponent(btnDANGKY, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(8, 8, 8)
-                                .addComponent(HIENMATKHAU))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtMATKHAU, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(19, 19, 19)
+                                    .addComponent(btnDANGKY, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(chkNHOTOI, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -130,7 +119,7 @@ public class DANGNHAP extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(305, 305, 305)
                         .addComponent(btnDANGNHAP)))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,9 +131,7 @@ public class DANGNHAP extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtMATKHAU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(HIENMATKHAU)))
+                    .addComponent(txtMATKHAU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(2, 2, 2)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(chkNHOTOI)
@@ -208,10 +195,6 @@ public class DANGNHAP extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnDANGNHAPActionPerformed
 
-    private void HIENMATKHAUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HIENMATKHAUActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HIENMATKHAUActionPerformed
-
     private void btnRESETActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRESETActionPerformed
         // TODO add your handling code here:
         txtTENTK.setText("");
@@ -267,7 +250,6 @@ public class DANGNHAP extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox HIENMATKHAU;
     private javax.swing.JButton btnDANGKY;
     private javax.swing.JButton btnDANGNHAP;
     private javax.swing.JButton btnRESET;
